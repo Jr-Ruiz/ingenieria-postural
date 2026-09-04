@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+const title = "Ingeniería Postural | Análisis Biomecánico de Sillas Ergonómicas";
+const description = "Evaluación técnica y rigurosa de sillas de oficina y gaming para teletrabajo y prevención de patologías lumbares.";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <style>
+      body { font-family: system-ui, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 2rem; }
+      h1 { color: #1a202c; font-size: 2.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+      .hero { margin-bottom: 3rem; }
+      .silos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+      .card { background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; }
+      .card h2 { margin-top: 0; color: #2b6cb0; }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Ingeniería Postural</h1>
+      <p><strong>La ergonomía no es un lujo, es física aplicada.</strong></p>
+      <p>Analizamos la cinemática, la distribución de presión y el soporte lumbar de las principales sillas del mercado. Sin reseñas genéricas ni contenido patrocinado: solo datos antropométricos y mecánica articular para profesionales que pasan más de 8 horas sentados.</p>
+    </header>
+
+    <main class="silos">
+      <article class="card">
+        <h2>Teletrabajo Premium</h2>
+        <p>Análisis de dispositivos de alta gama diseñados para la máxima exigencia postural. Descubre si la inversión está justificada.</p>
+        <a href="/teletrabajo/herman-miller-aeron">Leer análisis: Herman Miller Aeron &rarr;</a>
+      </article>
+
+      <article class="card">
+        <h2>Gaming Ergonómico</h2>
+        <p>Separamos el marketing de la verdadera biomecánica en el sector de los eSports.</p>
+        <p><em>(Próximamente: Secretlab Titan Evo)</em></p>
+      </article>
+
+      <article class="card">
+        <h2>Prevención y Patologías</h2>
+        <p>Soluciones específicas para la rectificación lumbar, ciática y tensión cervical.</p>
+        <p><em>(En desarrollo)</em></p>
+      </article>
+    </main>
+  </body>
+</html>
