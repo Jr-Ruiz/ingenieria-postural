@@ -1,13 +1,520 @@
 ---
+// src/pages/index.astro
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
+
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Ingeniería Postural</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingeniería Postural | Biomecánica y Sillería de Rendimiento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body style="font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px;">
-    <h1>Ingeniería Postural</h1>
-    <p>Portal técnico especializado en ergonomía y biomecánica aplicada a puestos de trabajo y sillería de altas prestaciones.</p>
+  <body>
+    <!-- Encabezado / Barra Superior -->
+    <header class="navbar">
+      <div class="container nav-content">
+        <div class="brand">
+          <span class="brand-badge">LAB</span>
+          <span class="brand-name">INGENIERÍA POSTURAL</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#pilares">Metodología</a>
+          <a href="#analisis">Revisiones</a>
+          <a href="#criterio" class="btn-nav">Criterio Técnico</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+      <div class="hero-text">
+        <div class="tag">AUDITORÍA ERGONÓMICA INDEPENDIENTE</div>
+        <h1>Menos marketing.<br /><span class="highlight">Más biomecánica.</span></h1>
+        <p class="lead">
+          Desmontamos el discurso publicitario de la sillería de oficina y gaming. 
+          Evaluamos soporte lumbosacro, distribución de presión de contacto y fatiga postural tras jornadas intensivas.
+        </p>
+        <div class="hero-cta">
+          <a href="#analisis" class="btn-primary">Ver Auditorías</a>
+          <a href="#pilares" class="btn-secondary">Protocolo de Ensayo</a>
+        </div>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-value">0%</span>
+            <span class="spec-label">Patrocinios de marcas</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-value">&gt;8 h</span>
+            <span class="spec-label">Test continuo de fatiga</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-value">L1–L5</span>
+            <span class="spec-label">Mapeo cinemático lumbar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="img-wrapper">
+          <img
+            src={`${base}/hero-chair.jpg`}
+            alt="Análisis biomecánico y despiece de sillería ergonómica"
+            loading="eager"
+          />
+          <div class="crosshair ch-tl"></div>
+          <div class="crosshair ch-br"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilares de Análisis -->
+    <section id="pilares" class="pillars-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="mono-label">[ ENSAYOS TÉCNICOS ]</span>
+          <h2>Cómo auditamos cada modelo</h2>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-num">01</div>
+            <h3>Cinemática Lumbosacra</h3>
+            <p>
+              Medición de la lordosis fisiológica en ángulos de trabajo (90° a 115°). Descartamos apoyos que empujan el hueso sacro forzando anteversión pélvica.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-num">02</div>
+            <h3>Gradiente de Presión Isquiática</h3>
+            <p>
+              Densidad de espuma (kg/m³) vs. tensión de malla. Medimos si el borde delantero de la cubeta estrangula el flujo sanguíneo del paquete poplíteo.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-num">03</div>
+            <h3>Chasis y Grados de Libertad</h3>
+            <p>
+              Mecanismos sincronizados frente a basculantes simples. Estabilidad estructural de crucetas, holguras mecánicas y brazos multieje (4D).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Próximo Análisis -->
+    <section id="analisis" class="container featured-review">
+      <div class="featured-box">
+        <div class="featured-badge">PRÓXIMO ANÁLISIS EN BANCO DE PRUEBAS</div>
+        <div class="featured-content">
+          <div>
+            <h2>Secretlab Titan Evo</h2>
+            <p class="review-desc">
+              Disección estructural: ¿Puede un chasis de estética gaming competir con sillería de oficina corporativa certificada (EN 1335 / BIFMA)?
+            </p>
+          </div>
+          <div class="review-meta">
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              En fase de redacción técnica
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p class="mono-label">© 2026 INGENIERÍA POSTURAL — ESTUDIO BIOMECÁNICO INDEPENDIENTE</p>
+        <p class="mono-label">ASTRO + GITHUB ACTIONS CI/CD</p>
+      </div>
+    </footer>
   </body>
 </html>
+
+<style>
+  :root {
+    --bg-main: #0b0f17;
+    --bg-card: #121824;
+    --border: #1e293b;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.15);
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Navbar */
+  .navbar {
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 15, 23, 0.85);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-badge {
+    background: var(--accent);
+    color: #000;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+  }
+
+  .brand-name {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .btn-nav {
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: var(--bg-card);
+  }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 56px;
+    padding: 80px 24px 60px;
+    min-height: calc(100vh - 120px);
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .highlight {
+    color: var(--accent);
+    background: linear-gradient(120deg, #38bdf8 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text-muted);
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .spec-value {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .spec-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    position: relative;
+  }
+
+  .img-wrapper {
+    position: relative;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  }
+
+  .img-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .crosshair {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--accent);
+  }
+
+  .ch-tl {
+    top: 12px;
+    left: 12px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+  }
+
+  .ch-br {
+    bottom: 12px;
+    right: 12px;
+    border-bottom: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
+  }
+
+  /* Pillars */
+  .pillars-section {
+    background: #070a0f;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 90px 0;
+  }
+
+  .section-head {
+    margin-bottom: 48px;
+  }
+
+  .mono-label {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  .section-head h2 {
+    font-size: 2.2rem;
+    margin-top: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+
+  .card-num {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Featured Box */
+  .featured-review {
+    padding: 80px 24px;
+  }
+
+  .featured-box {
+    background: linear-gradient(180deg, #121824 0%, #0d121c 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .featured-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+
+  .featured-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .featured-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .review-desc {
+    color: var(--text-muted);
+    max-width: 650px;
+    font-size: 1rem;
+  }
+
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 8px 16px;
+    border-radius: 99px;
+    color: var(--accent);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding-top: 40px;
+      gap: 40px;
+    }
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+</style>
