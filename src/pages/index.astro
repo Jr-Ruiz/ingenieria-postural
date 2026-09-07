@@ -474,35 +474,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             decoding="async"
           />
 
-          <svg class="hud-overlay" viewBox="0 0 1024 683" preserveAspectRatio="none">
-            <!-- Cota 1: Reposacabezas / Cervical -->
-            <circle cx="750" cy="240" r="4" fill="#38bdf8" />
-            <polyline points="750,240 820,180 980,180" fill="none" stroke="#38bdf8" stroke-width="1.5" />
-            <text x="825" y="172" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="1">
-              APOYO OCCIPITAL / CERVICAL
-            </text>
+            <svg class="hud-overlay" viewBox="0 0 1024 683" preserveAspectRatio="none">
+              <defs>
+                <!-- Filtro de sombra para garantizar lectura sobre zonas claras y oscuras -->
+                <filter id="hud-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.8" />
+                </filter>
+              </defs>
 
-            <!-- Cota 2: Soporte Dorsal -->
-            <circle cx="760" cy="510" r="4" fill="#38bdf8" />
-            <polyline points="760,510 830,480 980,480" fill="none" stroke="#38bdf8" stroke-width="1.5" />
-            <text x="835" y="472" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="1">
-              DESCARGA TORÁCICA INDEPENDIENTE
-            </text>
+              <!-- Cota 1: Reposacabezas / Cervical -->
+              <circle cx="750" cy="240" r="5" fill="#38bdf8" />
+              <polyline points="750,240 810,165 990,165" fill="none" stroke="#38bdf8" stroke-width="2" filter="url(#hud-shadow)" />
+              <text x="815" y="152" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" letter-spacing="0.5" filter="url(#hud-shadow)">
+                APOYO OCCIPITAL / CERVICAL
+              </text>
 
-            <!-- Cota 3: Chasis / Lumbar -->
-            <circle cx="635" cy="580" r="4" fill="#38bdf8" />
-            <polyline points="635,580 720,610 920,610" fill="none" stroke="#38bdf8" stroke-width="1.5" />
-            <text x="730" y="602" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="1">
-              ARTICULACIÓN LUMBAR L1–L5
-            </text>
+              <!-- Cota 2: Soporte Dorsal -->
+              <circle cx="760" cy="510" r="5" fill="#38bdf8" />
+              <polyline points="760,510 820,465 990,465" fill="none" stroke="#38bdf8" stroke-width="2" filter="url(#hud-shadow)" />
+              <text x="825" y="452" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" letter-spacing="0.5" filter="url(#hud-shadow)">
+                DESCARGA TORÁCICA INDEP.
+              </text>
 
-            <!-- Cota 4: Reposabrazos -->
-            <circle cx="390" cy="670" r="4" fill="#38bdf8" />
-            <polyline points="390,670 320,620 120,620" fill="none" stroke="#38bdf8" stroke-width="1.5" />
-            <text x="125" y="612" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="1">
-              APOYABRAZOS 3D (DESCARGA TRAPECIO)
-            </text>
-          </svg>
+              <!-- Cota 3: Chasis / Lumbar -->
+              <circle cx="635" cy="580" r="5" fill="#38bdf8" />
+              <polyline points="635,580 710,615 970,615" fill="none" stroke="#38bdf8" stroke-width="2" filter="url(#hud-shadow)" />
+              <text x="715" y="602" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" letter-spacing="0.5" filter="url(#hud-shadow)">
+                ARTICULACIÓN LUMBAR L1–L5
+              </text>
+
+              <!-- Cota 4: Reposabrazos -->
+              <circle cx="390" cy="670" r="5" fill="#38bdf8" />
+              <polyline points="390,670 310,615 40,615" fill="none" stroke="#38bdf8" stroke-width="2" filter="url(#hud-shadow)" />
+              <text x="45" y="602" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" letter-spacing="0.5" filter="url(#hud-shadow)">
+                APOYABRAZOS 3D (DESCARGA TRAPECIO)
+              </text>
+            </svg>
         </div>
       </div>
     </section>
