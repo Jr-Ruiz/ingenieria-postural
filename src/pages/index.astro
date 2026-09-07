@@ -207,7 +207,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         color: var(--text-muted);
       }
 
-      /* Hero Visual y HUD */
+      /* Hero Visual y Cotas HTML */
       .hero-visual {
         position: relative;
       }
@@ -218,12 +218,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         border: 1px solid var(--border);
         overflow: hidden;
         background: #0d121c;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
       }
 
       .img-wrapper img {
         display: block;
         width: 100%;
         height: auto;
+        filter: brightness(0.9) contrast(1.05);
       }
 
       .crosshair {
@@ -231,7 +233,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         width: 16px;
         height: 16px;
         border-color: var(--accent);
-        z-index: 10;
+        z-index: 20;
         pointer-events: none;
       }
 
@@ -263,17 +265,61 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         border-right: 2px solid var(--accent);
       }
 
-      .hud-overlay {
+      /* Marcadores técnicos HTML */
+      .cota {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 10;
         pointer-events: none;
-        z-index: 5;
       }
 
-      /* Seccion Pilares */
+      .cota-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+        flex-shrink: 0;
+      }
+
+      .cota-badge {
+        background: rgba(11, 15, 23, 0.94);
+        border: 1px solid var(--accent);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      }
+
+      /* Coordenadas relativas (%) sobre la imagen */
+      .cota-cervical {
+        top: 28%;
+        left: 65%;
+      }
+
+      .cota-dorsal {
+        top: 64%;
+        right: 32%;
+      }
+
+      .cota-lumbar {
+        top: 76%;
+        left: 60%;
+      }
+
+      .cota-brazo {
+        top: 84%;
+        left: 8%;
+      }
+
+      /* Sección Pilares */
       .pillars-section {
         background: #070a0f;
         border-top: 1px solid var(--border);
@@ -325,7 +371,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         font-size: 0.95rem;
       }
 
-      /* Seccion Revision Destacada */
+      /* Sección Revisión Destacada */
       .featured-review {
         padding: 80px 24px;
       }
@@ -410,6 +456,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           flex-direction: column;
           gap: 10px;
         }
+        .cota-badge {
+          font-size: 0.65rem;
+          padding: 2px 6px;
+        }
       }
     </style>
   </head>
@@ -474,47 +524,26 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             decoding="async"
           />
 
-             <svg class="hud-overlay" viewBox="0 0 1024 683" preserveAspectRatio="none">
-              <!-- Cota 1: Reposacabezas / Cervical (hacia la derecha, pero con margen) -->
-              <g class="hud-item">
-                <circle cx="750" cy="240" r="5" fill="#38bdf8" />
-                <polyline points="750,240 790,190 940,190" fill="none" stroke="#38bdf8" stroke-width="2" />
-                <rect x="750" y="155" width="200" height="26" rx="4" fill="#0b0f17" stroke="#38bdf8" stroke-width="1" />
-                <text x="760" y="172" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">
-                  APOYO CERVICAL C1–C7
-                </text>
-              </g>
+          <!-- Etiquetas de telemetría HTML con texto real y escala garantizada -->
+          <div class="cota cota-cervical">
+            <span class="cota-dot"></span>
+            <span class="cota-badge">APOYO CERVICAL C1–C7</span>
+          </div>
 
-              <!-- Cota 2: Soporte Dorsal (hacia la izquierda, sobre la espalda) -->
-              <g class="hud-item">
-                <circle cx="760" cy="510" r="5" fill="#38bdf8" />
-                <polyline points="760,510 650,470 420,470" fill="none" stroke="#38bdf8" stroke-width="2" />
-                <rect x="420" y="445" width="220" height="26" rx="4" fill="#0b0f17" stroke="#38bdf8" stroke-width="1" />
-                <text x="430" y="462" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">
-                  DESCARGA DORSAL INDEP.
-                </text>
-              </g>
+          <div class="cota cota-dorsal">
+            <span class="cota-badge">DESCARGA DORSAL</span>
+            <span class="cota-dot"></span>
+          </div>
 
-              <!-- Cota 3: Chasis / Lumbar (hacia la derecha inferior) -->
-              <g class="hud-item">
-                <circle cx="645" cy="580" r="5" fill="#38bdf8" />
-                <polyline points="645,580 730,620 940,620" fill="none" stroke="#38bdf8" stroke-width="2" />
-                <rect x="730" y="595" width="210" height="26" rx="4" fill="#0b0f17" stroke="#38bdf8" stroke-width="1" />
-                <text x="740" y="612" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">
-                  SOPORTE LUMBAR L1–L5
-                </text>
-              </g>
+          <div class="cota cota-lumbar">
+            <span class="cota-dot"></span>
+            <span class="cota-badge">SOPORTE LUMBAR L1–L5</span>
+          </div>
 
-              <!-- Cota 4: Reposabrazos (hacia la izquierda, sobre el lateral) -->
-              <g class="hud-item">
-                <circle cx="390" cy="670" r="5" fill="#38bdf8" />
-                <polyline points="390,670 330,620 90,620" fill="none" stroke="#38bdf8" stroke-width="2" />
-                <rect x="90" y="595" width="230" height="26" rx="4" fill="#0b0f17" stroke="#38bdf8" stroke-width="1" />
-                <text x="100" y="612" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">
-                  APOYABRAZOS AJUSTABLE 3D
-                </text>
-              </g>
-            </svg>
+          <div class="cota cota-brazo">
+            <span class="cota-badge">APOYABRAZOS 3D</span>
+            <span class="cota-dot"></span>
+          </div>
         </div>
       </div>
     </section>
